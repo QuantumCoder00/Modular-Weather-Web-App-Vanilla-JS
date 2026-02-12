@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> آب‌و‌هوا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style/weather.css" />
+</head>
+<body>
+
+  <!-- Dynamic background container controlled by JS -->
+
+  <div class="backgroud" id="background"></div>
+
+  <!-- Main glass weather app container -->
+
+  <div class="weather-container glass">
+    <div class="layout">
+
+      <!-- Right panel: weather details and selected cities -->
+
+    <aside class="right-panel">
+      <div class="details-box">
+        <h3 class="section-title">جزئیات</h3>
+          <div class="details">
+          <div><span>ابر: </span><span id="clouds">-</span></div>
+          <div><span>بارش: </span><span id="precipitation">-</span></div>
+          <div><span>باد:</span><span id="wind">-</span></div>
+          <div><span>رطوبت</span><span id="humidity">-</span></div>
+        </div>
+      </div>
+      <div class="locations-box">
+        <h3 class="section-title">شهرها</h3>
+        <ul id="location" class="location-list"></ul>
+      </div>
+    </aside>
+
+    <!-- Left panel: main weather info and forecast -->
+
+    <section class="left-panel">
+      <div class="main-info">
+        <div class="top-row">
+          <div class="forecast-label">پیش بینی</div>
+          <button id="searchIcon" class="icon-btn"><img src="Assets/ICON/search.svg"></button>
+        </div>
+
+        <!-- Min and max temperature display -->
+
+        <div class="temperature" id="temperature">
+          <span class="tem-i"><img src="Assets/ICON/down.svg"></span>
+          <span class="temp-min" id="tempMin">--</span>
+          <span class="tem-d"><img src="Assets/ICON/up.svg"></span>
+          <span class="temp-max" id="tempMax">--</span>
+        </div>
+        <div class="city-row">
+          <span class="city" id="city">-</span>
+          <span class="icon" id="weatherIcon"></span>
+        </div>
+        <div class="datetime" id="datetime">-</div>
+      </div>
+
+      <!-- Seven-day forecast slider section -->
+
+      <div class="forecast-box">
+         <button id="prevBtn" class="nav-btn"><img src="Assets/BC/Right.png"></button>
+         <div class="slider-wrapper">
+        <div class="seven-day" id="sevenday"></div>
+        </div>
+        <button id="nextBtn" class="nav-btn"><img src="Assets/BC/Left.png"></src></button>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <!-- Search modal for selecting cities -->
+
+  <div id="searchModal" class="search-modal">
+    <div class="search-box">
+      <p id="searchMessage" class="search-message"></p>
+      <h3>جستجوی شهر</h3>
+      <input id="cityInput" placeholder="مثال:تهران"/>
+      <ul id="searchResults"></ul>
+      <div class="modal-action">
+        <button id="closerModal" class="btn ghost">انصراف</button>
+      </div>
+      <ul id="searchResult" class="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- Custom context menu for city actions -->
+   
+  <div id="cityContextMenu" class="context-menu">
+  <div data-action="active">انتخاب به عنوان شهر فعال</div>
+  <div data-action="remove" class="danger">حذف شهر</div>
+</div>
+
+    <script type="module" src="./JS/main.js"></script>
+</body>
+</html>
